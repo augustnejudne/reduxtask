@@ -1,3 +1,5 @@
+import * as actionType from '../actions/actions';
+
 const initState = {
     users: [
         {
@@ -29,7 +31,24 @@ const initState = {
 }
 
 const allUsersReducer = (state = initState, action) => {
-    return state
+    switch (action.type) {
+        case actionType.ADD_USER: {
+            return {
+                ...state,
+                users: [...state.users, action.user]
+            }
+        }
+        case actionType.DELETE_USER: {
+            return {
+                ...state,
+                users: state,
+                users: state.users.filter(user => user !== action.user)
+            }
+        }
+        default:
+            return state;
+    }
+
 }
 
 export default allUsersReducer;

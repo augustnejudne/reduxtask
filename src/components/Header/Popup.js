@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './Header.css';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { onToggleModal, addUser } from "../../store/actions/addActions";
+import { onToggleModal, addUser, nameChange, idChange, descChange } from "../../store/actions/addActions";
 
 class Popup extends Component {
 
     render() {
-        const { onToggleModal, addUser, user } = this.props;
+        const { onToggleModal, addUser, name, id, Description, nameChange, idChange, descChange } = this.props;
         return (
             <div className="Popup">
                 <div className="PopupInner">
@@ -19,25 +19,25 @@ class Popup extends Component {
                             &times;
                         </div>
                     </div>
-                    <form onSubmit={handleSubmit(props => this.onSubmit(props))}>
+                    <form onSubmit={() => addUser(name,id,Description)}>
                         <div className="Details">
                             <label>Name</label>
-                            <input type="text" required name="name" onChange={(e) => this.handleChange(e, 'name')} />
+                            <input type="text" required id="name" value={name ? name : ''} onChange={nameChange} />
                         </div>
                         <div className="Details">
                             <label>id</label>
-                            <input type="text" required name="id" onChange={(e) => this.handleChange(e, 'id')} />
+                            <input type="text" required id="id" value={id ? id : ''} onChange={idChange} />
                         </div>
                         <div className="Details">
                             <label>Description</label>
-                            <textarea required name="Description" onChange={(e) => this.handleChange(e, 'Description')}></textarea>
+                            <textarea required id="Description" value={Description ? Description : ''} onChange={descChange}></textarea>
                         </div>
 
                         <div className="PopupFooter">
-                            <button className="Cancel">
+                            <button className="Cancel" onClick={() => onToggleModal(false)}>
                                 Cancel
                         </button>
-                            <button className="Add" type="Submit">Add User</button>
+                            <button className="Add" type="Submit" >Add User</button>
                         </div>
                     </form>
                 </div>
@@ -48,13 +48,19 @@ class Popup extends Component {
 
 Popup.propTypes = {
     onToggleModal: PropTypes.func,
-    addUser: PropTypes.func
+    addUser: PropTypes.func,
+    nameChange: PropTypes.func,
+    idChange: PropTypes.func,
+    descChange: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
     return {
-        user: state.adduser
+        user: state.adduser,
+        name: state.popup.nameValue,
+        id: state.popup.idValue,
+        Description: state.popup.descriptionValue
     }
 }
 
-export default connect(mapStateToProps, { onToggleModal, addUser })(Popup);
+export default connect(mapStateToProps, { onToggleModal, addUser, nameChange, idChange, descChange })(Popup);

@@ -1,7 +1,10 @@
 import * as actionType from '../actions/actions';
 
 const initState = {
-    show: false
+    show: false,
+    nameValue: ' ',
+    idValue: ' ',
+    descriptionValue: ' '
 }
 
 const popupReducer = (state = initState, action) => {
@@ -10,6 +13,24 @@ const popupReducer = (state = initState, action) => {
             return {
                 ...state,
                 show: action.show
+            }
+        }
+        case actionType.NAME_CHANGE: {
+            return {
+                ...state,
+                nameValue: action.text,
+            }
+        }
+        case actionType.ID_CHANGE: {
+            return {
+                ...state,
+                 idValue: action.number,
+            }
+        }
+        case actionType.DESC_CHANGE: {
+            return {
+                ...state,
+                descriptionValue: action.desc
             }
         }
         default:

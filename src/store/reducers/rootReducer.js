@@ -6,7 +6,7 @@ import { combineReducers } from 'redux';
 const rootReducer = combineReducers({
     popup: popupReducer,
     user: allUsersReducer,
-    activeUser: activeUserReducer
+    activeUser: activeUserReducer,
 })
 
 export default rootReducer;

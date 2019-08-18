@@ -26,6 +26,7 @@ User.propTypes = {
     selectUser: PropTypes.func,
 };
 
+
 const mapStateToProps = (state) => {
     return {
         users: state.user.users,

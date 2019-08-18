@@ -48,7 +48,6 @@ const allUsersReducer = (state = initState, action) => {
         default:
             return state;
     }
-
 }
 
 export default allUsersReducer;

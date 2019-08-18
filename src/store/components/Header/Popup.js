@@ -19,10 +19,7 @@ class Popup extends Component {
                             &times;
                         </div>
                     </div>
-                    <form onSubmit={e => {
-                        e.preventDefault();
-                        addUser({name,id,Description})
-                    }}>
+                    <form onSubmit={() => addUser(name,id,Description)}>
                         <div className="Details">
                             <label>Name</label>
                             <input type="text" required id="name" value={name ? name : ''} onChange={nameChange} />

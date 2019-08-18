@@ -1,0 +1,60 @@
+.Main {
+    width: calc(100% - 200px);
+    height: calc(100vh - 60px);
+}
+
+.MainContent {
+    height: inherit;
+    display: flex;
+}
+
+.MainInner {
+    display: flex;
+    width: 100%;
+    margin: 60px auto;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+.MainAvatar {
+    font-size: 40px;
+}
+
+.MainContentInner {
+    width: 840px;
+}
+
+
+.MainContentInner .MainDetails {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.MainContentInner .MainDetails label {
+    display: flex;
+    font-size: 17px;
+    width: 15%;
+    text-align: left;
+    align-items: center;
+}
+
+.MainContentInner .MainDetails>div {
+    padding: 20px 0;
+    border: 1px solid #ccc;
+    width: 85%;
+    border-width: 0 0 1px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    line-height: 21px;
+    font-size: 15px;
+    text-align: left;
+}
+
+.DefaultMsg {
+    display: flex;
+    height: inherit;
+    align-items: center;
+    justify-content: center;
+}

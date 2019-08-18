@@ -1,0 +1,91 @@
+.SideBar {
+    width: 200px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, .2);
+}
+
+.SideBar li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 30px;
+    border-bottom: 1px solid #c5c5c5;
+    position: relative;
+    cursor: pointer;
+}
+
+.SideBar li>span {
+    font-size: 14px;
+    white-space: nowrap;
+    display: block;
+    text-align: left;
+    width: calc(100% - 40px);
+    padding: 10px;
+}
+
+.SideBar li input {
+    margin: 0;
+}
+
+
+.Label {
+    display: block;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.Label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.Checkmark {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    margin-top: -10px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.Label input:checked~.Checkmark {
+    background-color: #0e3cb9;
+}
+
+/* Create the Checkmark/indicator (hidden when not checked) */
+.Checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the Checkmark when checked */
+.Label input:checked~.Checkmark:after {
+    display: block;
+}
+
+/* Style the Checkmark/indicator */
+.Label .Checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
